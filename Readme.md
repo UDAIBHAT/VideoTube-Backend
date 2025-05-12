@@ -58,7 +58,7 @@ Create a `.env` file in the root:
 
 ```
 PORT=8000
-MONGODB_URI=mongodb+srv://your_name:your-password@cluster0.lxl3fsq.mongodb.net
+MONGODB_URI=yourmongo_db_url
 CORS_ORIGIN=*
 ACCESS_TOKEN_SECRET=<your_access_token_secret>
 ACCESS_TOKEN_EXPIRY=1d
