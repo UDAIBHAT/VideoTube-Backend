@@ -7,7 +7,11 @@ dotenv.config({
 });
 
 const PORT = process.env.PORT || 8001;
+
+
 connectDB()
+
+
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Sever is running on port ${PORT}`);
@@ -17,6 +21,10 @@ connectDB()
     console.log("Mongodb connection error ", err);
   });
 console.log("hiii");
+
+// app.listen(PORT, () => {
+//   console.log(`Sever is running on port ${PORT}`);
+// });
 
   
 

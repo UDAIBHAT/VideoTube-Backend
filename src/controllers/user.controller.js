@@ -6,8 +6,10 @@ import {
   uploadOnCloudinary,
   deleteFromCloudinary,
 } from "../utils/cloudinary.js";
+
 import jwt from "jsonwebtoken";
 import mongoose, { mongo } from "mongoose";
+
 
 const generateAccessAndRefreshToken = async (userId) => {
   try {
@@ -116,7 +118,7 @@ const registerUser = asyncHandler(async (req, res) => {
     }
 
     return res
-      .status(201)
+      .status(200)
       .json(new ApiResponse(200, createdUser, "User registered successfully"));
   } catch (error) {
     console.log("User creation failed");
@@ -288,6 +290,10 @@ const getCurrentUser = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, req.user, "Current user details"));
 });
 
+
+
+
+
 const updateAccountDetails = asyncHandler(async (req, res) => {
   const { fullname, email } = req.body;
 
@@ -311,6 +317,10 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
     .json(200, user, "Account details updated successfully");
 });
 
+
+
+
+
 const updateUserAvatar = asyncHandler(async (req, res) => {
   const avatarLocalPath = req.file?.path;
 
@@ -318,7 +328,7 @@ const updateUserAvatar = asyncHandler(async (req, res) => {
     throw new ApiError(400, "Avatar file is missing");
   }
 
-  //TODO: delete old image - assignment
+  //TODO: delete old image - 
 
   const delAvatarUser = await User.findById(req.user?._id);
   // console.log("avatar url: ", delAvatarUser.avatar)
@@ -344,6 +354,10 @@ const updateUserAvatar = asyncHandler(async (req, res) => {
     .status(200)
     .json(new ApiResponse(200, user, "Avatar image updated successfully"));
 });
+
+
+
+
 
 const updateUserCoverImage = asyncHandler(async (req, res) => {
   const coverImageLocalPath = req.file?.path;
@@ -376,6 +390,11 @@ const updateUserCoverImage = asyncHandler(async (req, res) => {
     .status(200)
     .json(new ApiResponse(200, user, "Cover image updated successfully"));
 });
+
+
+
+
+
 
 const getUserChannelProfile = asyncHandler(async (req, res) => {
   const { username } = req.params;
@@ -458,7 +477,7 @@ const getWatchHistory = asyncHandler(async (req, res) => {
   const user = await User.aggregate([
     {
       $match: {
-        _id: mongoose.Types.ObjectId(req.user._id),
+        _id: new mongoose.Types.ObjectId(req.user._id),
       },
     },
     {
