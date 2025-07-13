@@ -28,7 +28,7 @@ app.use(
   "/api-docs",
   swaggerUi.serve,
   swaggerUi.setup(specs, {
-    customCssUrl: "/css/swagger-ui.css",
+    customCssUrl: "/config/swagger-ui.css",
     customSiteTitle: "Video Tube API Documentation",
     customfavIcon: "/favicon.ico",
     swaggerOptions: {

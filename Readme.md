@@ -90,7 +90,7 @@ Server will be running at: `http://localhost:8000`
 - `POST /api/v1/videos/upload` – Upload a new video
 - `POST /api/v1/comments/:videoId` – Add comment to a video
 
-> Full API documentation coming soon via Postman collection.
+> Full API documentation  added as Postman Collectiion and Swagger_Docs
 
 ## 🤝 Contributing
 
